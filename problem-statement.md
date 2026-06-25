@@ -5,7 +5,7 @@
 ## Introduction
 
 Afforestation and reforestation activities play an important role in improving environmental sustainability, reducing carbon emissions, and restoring ecosystems. Governments, NGOs, and environmental organizations conduct large-scale tree plantation programs every year.
-
+ 
 However, a major challenge in these plantation programs is the failure of newly planted trees to survive. Many trees die within the first few years due to unsuitable environmental conditions, poor soil quality, incorrect tree species selection, insufficient water supply, and improper maintenance.
 
 Currently, plantation decisions are mostly based on manual analysis and traditional knowledge. There is no intelligent system that can predict whether a newly planted tree will survive under specific environmental conditions before investing resources.
