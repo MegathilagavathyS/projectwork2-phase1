@@ -148,7 +148,7 @@ The main objectives of this project are:
 
 6. To reduce resource wastage caused by plantation failures.
 
----
+----
 
 # Machine Learning Approach
 
