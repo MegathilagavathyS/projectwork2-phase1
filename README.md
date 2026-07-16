@@ -1,237 +1,192 @@
-# 🌳 A Deep Neural Network-Based Approach for Predicting Tree Survival Probability Under Changing Environmental Conditions
+# Explainable Diabetic Retinopathy Detection with Adaptive Image Enhancement
 
-## Problem Statement
+## 📖 Project Description
 
-## Introduction
+**Explainable Diabetic Retinopathy Detection with Adaptive Image Enhancement** is a deep learning-based medical image analysis project designed to detect different stages of diabetic retinopathy from retinal fundus images. The project aims to improve the accuracy and reliability of diabetic retinopathy diagnosis by introducing an **Adaptive Image Enhancement Pipeline**, **Multi-View Retinal Feature Learning**, and **Explainable Artificial Intelligence (XAI)**.
 
-Afforestation and reforestation activities play an important role in improving environmental sustainability, reducing carbon emissions, and restoring ecosystems. Governments, NGOs, and environmental organizations conduct large-scale tree plantation programs every year.
+Unlike conventional approaches that apply the same preprocessing technique to every retinal image, the proposed system first analyzes the quality of the input image and automatically selects the most suitable enhancement method. Depending on the image characteristics, techniques such as **CLAHE**, **Gamma Correction**, **Unsharp Masking**, or **Bilateral Filtering** are applied to improve image quality while preserving important retinal features.
 
-However, a major challenge in these plantation programs is the failure of newly planted trees to survive. Many trees die within the first few years due to unsuitable environmental conditions, poor soil quality, incorrect tree species selection, insufficient water supply, and improper maintenance.
+After enhancement, the retinal image is converted into multiple representations, including the **Original RGB Image**, **Green Channel Image**, and **CLAHE-Enhanced Image**. These multiple views capture complementary information about blood vessels, microaneurysms, hemorrhages, and other retinal abnormalities. The extracted features are combined and provided as input to an **EfficientNet-B0** deep learning model for accurate five-class diabetic retinopathy classification.
 
-Currently, plantation decisions are mostly based on manual analysis and traditional knowledge. There is no intelligent system that can predict whether a newly planted tree will survive under specific environmental conditions before investing resources.
-
----
-
-# Existing Problem
-
-Large-scale plantation programs face several challenges:
-
-- High mortality rate of newly planted trees
-- Wastage of financial and natural resources
-- Increased maintenance cost
-- Selection of unsuitable tree species
-- Lack of predictive decision support
-
-Most existing environmental applications focus on:
-
-- Plant disease detection
-- Crop recommendation
-- Crop yield prediction
-- Weather forecasting
-- Forest monitoring
-
-However, very few systems focus on predicting the survival probability of trees before plantation.
-
-Therefore, an intelligent prediction system is required to improve the success rate of afforestation projects.
+To improve the transparency of the prediction, the project integrates **Grad-CAM++**, which highlights the retinal regions responsible for the model's decision. The system also generates a **confidence score** and a **clinical report**, enabling doctors and healthcare professionals to better understand and trust the model's predictions.
 
 ---
 
-# Problem Definition
+# 🎯 Objectives
 
-The objective of this project is to develop an Artificial Intelligence-based Tree Survival Prediction System that predicts whether a newly planted tree will survive or fail based on environmental, soil, and plantation-related parameters.
-
-The system should answer:
-
-**"Will this tree survive successfully if planted under these conditions?"**
-
-before investing time, money, and resources.
-
----
-
-# Proposed Solution
-
-The proposed system uses a Deep Learning-based approach to predict tree survival probability.
-
-An Artificial Neural Network (ANN) model will analyze various environmental and plantation parameters to learn the relationship between these factors and tree survival.
-
-The system will provide:
-
-- Tree survival probability
-- Risk level classification
-- Plantation suitability recommendation
+* Develop an intelligent deep learning model for diabetic retinopathy detection.
+* Improve retinal image quality using adaptive image enhancement.
+* Extract complementary retinal features using multi-view image representations.
+* Classify retinal images into five diabetic retinopathy severity stages.
+* Provide explainable predictions using Grad-CAM++.
+* Generate confidence-aware predictions and clinical reports.
+* Develop a simple web application for diabetic retinopathy screening.
 
 ---
 
-# Input Parameters
+# 🚀 Proposed Workflow
 
-The system considers the following parameters:
-
-## Environmental Parameters
-
-- Rainfall
-- Temperature
-- Humidity
-- Climate conditions
-- Location information
-
-## Soil Parameters
-
-- Soil type
-- Soil moisture
-- Soil fertility
-- Soil nutrient availability
-
-## Plantation Parameters
-
-- Tree species
-- Watering frequency
-- Fertilizer application
-- Maintenance level
-
----
-
-# System Output
-
-The system generates prediction results.
-
-## Survival Probability
-
-Example:
-
-```
-Tree Survival Probability: 88%
-```
-
-## Risk Level
-
-Example:
-
-```
-Risk Level: Low
-```
-
-Risk categories:
-
-- Low Risk
-- Medium Risk
-- High Risk
-
-## Recommendation
-
-Example:
-
-```
-Suitable for plantation in this environment.
-```
-
-or
-
-```
-Low rainfall detected. Select a drought-resistant tree species.
+```text
+Retinal Fundus Image
+          │
+          ▼
+Image Quality Analysis
+          │
+          ▼
+Adaptive Image Enhancement
+(CLAHE / Gamma Correction /
+Unsharp Masking / Bilateral Filter)
+          │
+          ▼
+Multi-View Image Generation
+(RGB + Green Channel + CLAHE)
+          │
+          ▼
+Feature Fusion
+          │
+          ▼
+EfficientNet-B0
+          │
+          ▼
+Five-Class DR Classification
+          │
+          ▼
+Grad-CAM++ Visualization
+          │
+          ▼
+Confidence Score
+          │
+          ▼
+Clinical Report
 ```
 
 ---
 
-# Objectives
+# 📂 Dataset
 
-The main objectives of this project are:
+The project uses publicly available retinal fundus image datasets:
 
-1. To develop a deep learning model for predicting tree survival.
+* **APTOS 2019 Blindness Detection**
+* **EyePACS Diabetic Retinopathy Dataset**
 
-2. To analyze the impact of environmental factors on tree survival.
+The images are categorized into five classes:
 
-3. To provide early prediction before plantation activities.
-
-4. To recommend suitable plantation conditions.
-
-5. To improve the success rate of afforestation programs using Artificial Intelligence.
-
-6. To reduce resource wastage caused by plantation failures.
-
-----
-
-# Machine Learning Approach
-
-The proposed system uses:
-
-## Artificial Neural Network (ANN)
-
-ANN is used because it can learn complex relationships between multiple environmental factors and predict nonlinear outcomes.
-
-## System Workflow
-
-```
-Environmental Data
-        |
-        ↓
-Data Preprocessing
-        |
-        ↓
-Feature Extraction
-        |
-        ↓
-Artificial Neural Network
-        |
-        ↓
-Tree Survival Prediction
-        |
-        ↓
-Risk Level and Recommendation
-```
+* No Diabetic Retinopathy
+* Mild
+* Moderate
+* Severe
+* Proliferative Diabetic Retinopathy
 
 ---
 
-# Scope of the Project
+# 🧠 Deep Learning Model
 
-The proposed system can be used by:
+**Primary Model**
 
-- Government plantation programs
-- Forest departments
-- Environmental organizations
-- NGOs
-- Smart city green initiatives
-- Sustainable ecosystem management programs
+* EfficientNet-B0
 
-The system can be extended with:
+**Image Processing Techniques**
 
-- IoT-based soil monitoring sensors
-- Real-time weather APIs
-- Satellite environmental data
-- Mobile application support
+* CLAHE
+* Gamma Correction
+* Unsharp Masking
+* Bilateral Filtering
 
----
+**Explainable AI**
 
-# Innovation
-
-Unlike traditional systems that analyze tree health after plantation, this project focuses on predicting survival before plantation.
-
-The major innovations are:
-
-- AI-based tree survival prediction
-- Preventive plantation planning
-- Environmental suitability analysis
-- Survival probability estimation
-- Smart afforestation decision support
+* Grad-CAM++
 
 ---
 
-# Expected Outcome
+# 🛠 Technologies Used
 
-The developed system will provide an intelligent platform that helps users select suitable tree species and plantation conditions.
-
-Expected benefits:
-
-- Higher tree survival rate
-- Reduced plantation failure
-- Efficient resource utilization
-- Lower maintenance cost
-- Better environmental planning
-- Support for sustainable afforestation
+* Python
+* TensorFlow
+* Keras
+* OpenCV
+* NumPy
+* Pandas
+* Scikit-learn
+* Matplotlib
+* Flask
+* HTML
+* CSS
+* JavaScript
 
 ---
 
-# Conclusion
+# ✨ Key Features
 
-The Tree Survival Prediction System provides an AI-driven solution for improving plantation success by predicting the survival probability of newly planted trees.
+* Adaptive Image Enhancement
+* Multi-View Retinal Feature Learning
+* Five-Class Diabetic Retinopathy Classification
+* Explainable AI using Grad-CAM++
+* Confidence Score Generation
+* Clinical Report Generation
+* Web-Based Prediction System
 
-By combining environmental parameters with deep learning techniques, the system enables smarter plantation decisions and contributes toward sustainable environmental conservation.
+---
+
+# 📋 Expected Output
+
+The system provides:
+
+* Predicted Diabetic Retinopathy Stage
+* Confidence Score
+* Grad-CAM++ Heatmap
+* Clinical Report
+
+### Example
+
+**Prediction:** Moderate Diabetic Retinopathy
+
+**Confidence:** 96%
+
+**Recommendation:** Consult an ophthalmologist for further clinical evaluation.
+
+---
+
+# 💡 Project Novelty
+
+The proposed project introduces several innovative features compared to traditional diabetic retinopathy detection systems:
+
+* Adaptive Image Enhancement based on image quality instead of fixed preprocessing.
+* Multi-View Retinal Feature Learning using RGB, Green Channel, and CLAHE-enhanced images.
+* Explainable AI through Grad-CAM++ for transparent predictions.
+* Confidence-aware prediction to improve reliability.
+* Automatic clinical report generation to support medical decision-making.
+
+---
+
+# 📌 Expected Deliverables
+
+* Literature Survey
+* Dataset Collection
+* Adaptive Image Enhancement Module
+* Multi-View Image Generation Module
+* EfficientNet-B0 Classification Model
+* Explainable AI Module (Grad-CAM++)
+* Confidence Score Module
+* Clinical Report Generation
+* Web Application
+* Project Documentation
+
+---
+
+# 🔮 Future Scope
+
+* Disease Progression Prediction
+* Lesion Detection and Quantification
+* Personalized Treatment Recommendation
+* Multi-Disease Retinal Screening
+* Mobile Application Development
+* Cloud Deployment
+* Electronic Health Record (EHR) Integration
+
+---
+
+# 📌 Project Title
+
+**Explainable Diabetic Retinopathy Detection with Adaptive Image Enhancement**
+
+**Domain:** Deep Learning | Medical Image Analysis | Computer Vision | Explainable Artificial Intelligence (XAI)
