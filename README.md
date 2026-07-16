@@ -66,8 +66,8 @@ Clinical Report
 
 The project uses publicly available retinal fundus image datasets:
 
-* **APTOS 2019 Blindness Detection**
-* **EyePACS Diabetic Retinopathy Dataset**
+* **APTOS 2019 **
+
 
 The images are categorized into five classes:
 
