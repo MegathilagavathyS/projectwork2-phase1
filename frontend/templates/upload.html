@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %}Upload Fundus Image{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold text-primary">
+            Upload Fundus Image
+        </h1>
+
+        <p class="lead">
+            Upload a retinal fundus image for AI-powered glaucoma detection.
+        </p>
+
+    </div>
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+            <div class="card shadow-lg p-4">
+
+                <form action="/predict" method="POST" enctype="multipart/form-data">
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-bold">
+
+                            Select Fundus Image
+
+                        </label>
+
+                        <input
+                            type="file"
+                            class="form-control"
+                            id="imageInput"
+                            name="image"
+                            accept=".jpg,.jpeg,.png"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <img
+                            id="preview"
+                            src=""
+                            class="img-fluid rounded shadow"
+                            style="display:none;max-height:350px;"
+                        >
+
+                    </div>
+
+                    <div class="text-center mt-4">
+
+                        <button class="btn btn-primary btn-lg">
+
+                            Upload & Predict
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
