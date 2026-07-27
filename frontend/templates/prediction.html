@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block title %}Prediction{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold text-primary">
+
+            AI Prediction Result
+
+        </h1>
+
+        <p class="lead">
+
+            Glaucoma Detection using Deep Learning
+
+        </p>
+
+    </div>
+
+    <div class="row">
+
+        <!-- Uploaded Image -->
+
+        <div class="col-lg-5">
+
+            <div class="card shadow p-3">
+
+                <h4 class="text-center text-primary">
+
+                    Uploaded Image
+
+                </h4>
+
+                <img
+                    src="{{ url_for('static', filename='images/sample_retina.jpg') }}"
+                    class="img-fluid rounded mt-3"
+                >
+
+            </div>
+
+        </div>
+
+        <!-- Prediction -->
+
+        <div class="col-lg-7">
+
+            <div class="card shadow p-4">
+
+                <h3 class="text-success">
+
+                    Prediction
+
+                </h3>
+
+                <h2 class="fw-bold">
+
+                    Normal
+
+                </h2>
+
+                <hr>
+
+                <h5>
+
+                    Confidence Score
+
+                </h5>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar bg-success"
+                        style="width:98%">
+
+                        98%
+
+                    </div>
+
+                </div>
+
+                <br>
+
+                <h5>
+
+                    Risk Level
+
+                </h5>
+
+                <span class="badge bg-success">
+
+                    Low Risk
+
+                </span>
+
+                <hr>
+
+                <h5>
+
+                    Clinical Recommendation
+
+                </h5>
+
+                <p>
+
+                    No signs of glaucoma detected.
+                    Regular eye checkups are recommended.
+
+                </p>
+
+                <button class="btn btn-primary">
+
+                    Download Report
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
