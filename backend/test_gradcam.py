@@ -5,7 +5,7 @@ from utils.preprocessing import adaptive_preprocessing
 from utils.gradcam import generate_gradcam
 
 
-MODEL_PATH = r"D:\Documents\Research_Project\projectwork2-phase1\Model_Training\efficientnetb3_glaucoma_final.keras"
+MODEL_PATH = r"D:\Documents\Research_Project\projectwork2-phase1\Model_Training\efficientnetb3_glaucoma_experiment2.keras"
 
 # Load model
 model = tf.keras.models.load_model(MODEL_PATH)
