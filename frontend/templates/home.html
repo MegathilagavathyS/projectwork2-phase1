@@ -6,26 +6,46 @@ Home
 
 {% block content %}
 
-<div class="text-center">
+<section class="home-hero">
+    <div class="home-copy">
+        <span class="eyebrow">AI-assisted retinal image screening</span>
+        <h1 class="display-4 fw-bold mt-3">A clearer look at retinal images.</h1>
+        <p class="lead mt-3">Explore an experimental deep-learning model that analyzes fundus images and visualizes image regions that influenced its output.</p>
+        <a class="btn btn-primary btn-lg mt-3" href="{{ url_for('upload') }}">Screen an image <span aria-hidden="true">→</span></a>
+        <p class="home-disclaimer mt-3 mb-0">For education and research only. Not a diagnosis or replacement for an eye examination.</p>
+    </div>
+    <div class="home-feature" aria-hidden="true">
+        <div class="feature-orbit orbit-one"></div>
+        <div class="feature-orbit orbit-two"></div>
+        <div class="feature-center">
+            <span>EC</span>
+        </div>
+        <div class="feature-caption">Image analysis<br><strong>with explainable AI</strong></div>
+    </div>
+</section>
 
-    <h1 class="display-4 fw-bold text-primary">
-
-        AI-Based Glaucoma Detection
-
-    </h1>
-
-    <p class="lead mt-3">
-
-        Early Detection of Glaucoma using Deep Learning and Explainable AI.
-
-    </p>
-
-    <button class="btn btn-primary btn-lg mt-3">
-
-        Upload Fundus Image
-
-    </button>
-
-</div>
+<section class="home-steps row g-3 mt-5" aria-label="Screening workflow">
+    <div class="col-md-4">
+        <article class="step-card">
+            <span class="step-number">01</span>
+            <h2 class="h5">Upload</h2>
+            <p class="mb-0">Choose a retinal fundus image in JPG or PNG format.</p>
+        </article>
+    </div>
+    <div class="col-md-4">
+        <article class="step-card">
+            <span class="step-number">02</span>
+            <h2 class="h5">Analyze</h2>
+            <p class="mb-0">Image enhancement and the trained model generate an experimental score.</p>
+        </article>
+    </div>
+    <div class="col-md-4">
+        <article class="step-card">
+            <span class="step-number">03</span>
+            <h2 class="h5">Review</h2>
+            <p class="mb-0">Explore the output and Grad-CAM visualization, then consult a professional.</p>
+        </article>
+    </div>
+</section>
 
 {% endblock %}

@@ -1,79 +1,73 @@
 {% extends "layout.html" %}
 
-{% block title %}Upload Fundus Image{% endblock %}
+{% block title %}Screen an Image | EyeCheck{% endblock %}
 
 {% block content %}
-
-<section class="container py-5">
-
-    <div class="text-center mb-5">
-
-        <h1 class="fw-bold text-primary">
-            Upload Fundus Image
-        </h1>
-
-        <p class="lead">
-            Upload a retinal fundus image for AI-powered glaucoma detection.
-        </p>
-
+<section class="upload-page">
+    <div class="page-heading text-center">
+        <span class="eyebrow">AI-assisted screening</span>
+        <h1 class="display-5 fw-bold">Screen a retinal image</h1>
+        <p class="lead">Upload a clear retinal fundus photograph to view an experimental model result.</p>
     </div>
 
     <div class="row justify-content-center">
-
-        <div class="col-lg-7">
-
-            <div class="card shadow-lg p-4">
-
-                <form action="/predict" method="POST" enctype="multipart/form-data">
-
-                    <div class="mb-4">
-
-                        <label class="form-label fw-bold">
-
-                            Select Fundus Image
-
-                        </label>
-
-                        <input
-                            type="file"
-                            class="form-control"
-                            id="imageInput"
-                            name="image"
-                            accept=".jpg,.jpeg,.png"
-                            required
-                        >
-
+        <div class="col-xl-8 col-lg-9">
+            <div class="card upload-card">
+                <div class="card-body p-4 p-md-5">
+                    {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Image could not be processed.</strong> {{ error }}
                     </div>
+                    {% endif %}
 
-                    <div class="text-center">
+                    <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data" id="uploadForm">
+                        <label class="form-label fw-semibold" for="imageInput">Choose a fundus image</label>
+                        <div class="upload-dropzone" id="dropzone">
+                            <div class="upload-icon" aria-hidden="true">↑</div>
+                            <p class="dropzone-title mb-1">Drop an image here or browse files</p>
+                            <p class="text-muted small mb-3">JPG, JPEG, or PNG · Maximum 10 MB</p>
+                            <input
+                                type="file"
+                                class="form-control"
+                                id="imageInput"
+                                name="image"
+                                accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+                                aria-describedby="fileHelp fileError"
+                                required
+                            >
+                            <div id="fileError" class="invalid-feedback" role="alert"></div>
+                        </div>
 
-                        <img
-                            id="preview"
-                            src=""
-                            class="img-fluid rounded shadow"
-                            style="display:none;max-height:350px;"
-                        >
+                        <div class="preview-panel mt-4" id="previewPanel" hidden>
+                            <img id="preview" class="image-preview" src="" alt="Preview of the selected retinal image">
+                            <div class="preview-meta">
+                                <span class="preview-label">Selected image</span>
+                                <span id="fileName" class="file-name"></span>
+                                <button type="button" class="btn btn-link btn-sm p-0" id="removeImage">Remove image</button>
+                            </div>
+                        </div>
 
-                    </div>
+                        <p id="fileHelp" class="form-text mt-3">
+                            Use a retinal fundus photograph. Avoid uploading personal or identifying information.
+                        </p>
 
-                    <div class="text-center mt-4">
+                        <div class="screening-notice mt-4" role="note">
+                            <strong>Important:</strong> This research tool does not diagnose or rule out glaucoma.
+                            A qualified eye-care professional should interpret any result.
+                        </div>
 
-                        <button class="btn btn-primary btn-lg">
-
-                            Upload & Predict
-
+                        <button class="btn btn-primary btn-lg w-100 mt-4" id="submitButton" type="submit">
+                            <span class="button-label">Analyze image</span>
+                            <span class="button-loading" hidden>
+                                <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+                                Processing image…
+                            </span>
                         </button>
-
-                    </div>
-
-                </form>
-
+                    </form>
+                </div>
             </div>
-
+            <p class="text-center text-muted small mt-3 mb-0">The uploaded image and generated visualizations are saved in the application results folder. No database or prediction history is configured.</p>
         </div>
-
     </div>
-
 </section>
-
 {% endblock %}
